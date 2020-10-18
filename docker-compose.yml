@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  java-app-1:
+    build: ./app1/Java-testapp
+    ports:
+      - "5060:8080"
+    container_name: project-java-app1
+
+  java-app-2:
+    image: elhagrasy/app2:latest
+    ports:
+       - "6060:8080"
+    container_name: project-java-app2
+
+  nginx:
+    image: elhagrasy/reverse-proxy:latest
+    ports:
+      - "80:80"
+    container_name: reverse-proxy
